@@ -8,10 +8,15 @@ import 'query_builder.dart';
 class PostgresQuery<InstanceType extends ManagedObject> extends Object
     with QueryMixin<InstanceType>
     implements Query<InstanceType> {
-  PostgresQuery(this.context);
+  // PostgresQuery(this.context);
 
-  PostgresQuery.withEntity(this.context, ManagedEntity entity) {
+  PostgresQuery.withEntity(
+    this.context,
+    ManagedEntity entity, {
+    String schema,
+  }) {
     _entity = entity;
+    this.schema = schema;
   }
 
   @override
